@@ -63,53 +63,18 @@ function SignUp() {
       console.log('Confirm Password', cpassword);
       console.log('Contact No.', contact);
       event.preventDefault();
-      // axios.post('http://localhost:5000/register',{Firstname:Fname,Lastname:Lname,Email:email,Password:password,ConfirmPassword:cpassword,Contact:contact})
-      // .then(res=>{console.log(res.data)})
-      axios({
-        method: "post",
-        url: "http://localhost:5000/register",
-        data: {Firstname:Fname,Lastname:Lname,Email:email,Password:password,ConfirmPassword:cpassword,Contact:contact},
-        headers: { "Content-Type": "application/json" },
-      })
-      .then(function (response) {
-        //handle success
-        console.log(response);
-      })
-      .catch(function (response) {
-        //handle error
-        console.log(response);
+
+      axios.post('http://localhost:5000/register', {
+        Fname, Lname, email, password, cpassword, contact
+      }).then((res) => {
+        console.log(res);
+        console.log(res.data);
+      }).catch((err) => {
+        console.log(err);
       });
-    //   let formData = new FormData();
-    //   formData.append("fname",Fname);
-    //   axios
-    //   .post("http://localhost:5000/register", formData , {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-    let data = {name:Fname};
-    fetch("http://localhost:5000/register", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-      });
- 
+
     }
  
-
-  
     return (
    <div className="mainform">   
     <div className="form-box">
@@ -154,7 +119,7 @@ function SignUp() {
           <label htmlFor="contact">Contact No.</label>
           <input
             id="contact"
-            type="email"
+            type="text"
             value={contact}
             placeholder="Contact"
             onChange={(e) => setContact(e.target.value)}
