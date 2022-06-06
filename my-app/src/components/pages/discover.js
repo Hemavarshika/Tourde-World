@@ -28,11 +28,11 @@
 //     console.log("Server is running on port 3000.")
 // })
 
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import'../../App.css';
+import axios from 'axios';
 
-
-function discover(){
+function Discover(){
     const[data,setData] = useState(null);
     async function fetchData(){
         try{
@@ -55,4 +55,4 @@ function discover(){
 
 }
 
-export default discover;
+export default Discover;

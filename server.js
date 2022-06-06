@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 
 
-app.use(cors({ origin: 'http://localhost:3001' }))
+app.use(cors())
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -21,7 +21,7 @@ app.get('/', function (req, res) { //Line 9
   //res.sendFile(__dirname + "/my-app/src/components/pages/SignUp.js");
   // res.sendFile(__dirname + "/SignUp.js");
   //   console.log(___dirname);
-  res.send("Hello World !");
+  res.send({ message: "Hello World !" });
 
 });
 
