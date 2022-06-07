@@ -118,3 +118,12 @@ input{
   background: #3e3b42;
   text-decoration: none;
 }
+
+.image{
+  width:500px;
+  height:500px;
+  border-radius:5px;
+  border:solid black 3px;
+  margin:10px;
+  
+}
